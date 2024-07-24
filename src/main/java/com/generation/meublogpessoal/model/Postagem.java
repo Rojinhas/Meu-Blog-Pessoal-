@@ -34,6 +34,22 @@ public class Postagem {
 	@UpdateTimestamp
 	private LocalDateTime data;
 	
+	@ManyToOne
+	@JsonIgnoreProperties ("postagem")
+	private Usuario usuario; 
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Tema tema;
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Tema getTema() {
 		return tema;
 	}
@@ -42,9 +58,6 @@ public class Postagem {
 		this.tema = tema;
 	}
 
-	@ManyToOne
-	@JsonIgnoreProperties("postagem")
-	private Tema tema;
 	
 	public Long getId() {
 		return id;
